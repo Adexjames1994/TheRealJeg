@@ -2,12 +2,13 @@ import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import Reveal from "./Reveal";
 import { getProjects } from "@/sanity/lib/projects";
+import { profile } from "@/content/profile";
 
 function ProjectVisual({ project, number }) {
   return (
-    <div className="project-visual">
+    <div className={`project-visual ${project.slug === "voltpay" ? "project-visual--contain" : ""}`}>
       {project.image ? (
-        <img src={project.image} alt={`${project.title} project preview`} className="project-image" />
+        <img src={project.image} alt={`${project.title} project preview`} className="project-image" loading="lazy" decoding="async" />
       ) : (
         <><div className="visual-grid" /><div className="visual-window"><span /><span /><span /><div className="visual-line large" /><div className="visual-line" /><div className="visual-line short" /></div></>
       )}
@@ -44,6 +45,13 @@ export default async function Projects() {
             </Reveal>
           ))}
         </div>
+
+        <Reveal className="projects-more">
+          <p>This is a selection of my work. I've also worked on other projects beyond those featured here.</p>
+          <a href={profile.github} className="outline-button" target="_blank" rel="noreferrer">
+            Explore my GitHub <ArrowUpRight size={17} />
+          </a>
+        </Reveal>
       </div>
     </section>
   );

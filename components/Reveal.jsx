@@ -9,6 +9,10 @@ export default function Reveal({ children, className = "" }) {
   useEffect(() => {
     const element = ref.current;
     if (!element) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window)) {
+      setVisible(true);
+      return;
+    }
 
     const observer = new IntersectionObserver(
       ([entry]) => {

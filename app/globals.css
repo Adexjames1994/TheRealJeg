@@ -931,6 +931,10 @@ textarea {
 }
 
 @media (max-width: 640px) {
+  .case-study {
+    padding-top: 68px;
+  }
+
   .container {
     width: min(calc(100% - 40px), var(--container));
   }
@@ -1060,7 +1064,7 @@ textarea {
 
 .case-study {
   min-height: 100vh;
-  padding: 0 0 120px;
+  padding: 76px 0 120px;
 }
 
 .case-nav {
@@ -1296,3 +1300,81 @@ textarea {
     transition-duration: .01ms !important;
   }
 }
+
+/* Keep keyboard navigation and anchored sections easy to follow. */
+:where(a, button, input, select, textarea):focus-visible,
+.contact-form :is(input, select, textarea):focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 4px;
+}
+section[id] { scroll-margin-top: 90px; }
+.contact-links a { overflow-wrap: anywhere; }
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; }
+}
+
+.case-gallery {
+  display: grid;
+  gap: 32px;
+  margin-top: 32px;
+}
+.case-gallery figure { margin: 0; }
+.case-gallery-image {
+  padding: clamp(12px, 3vw, 32px);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--surface);
+  text-align: center;
+}
+.case-gallery img {
+  display: block;
+  max-width: 100%;
+  max-height: 680px;
+  width: auto;
+  height: auto;
+  margin-inline: auto;
+}
+.case-gallery figcaption {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Fit the complete VoltPay dashboard in both project views. */
+.project-visual--contain {
+  padding: 12px;
+}
+.project-visual--contain .project-image {
+  object-fit: contain;
+}
+.project-card:hover .project-visual--contain .project-image {
+  transform: none;
+}
+.case-cover--contain {
+  min-height: 0;
+  aspect-ratio: auto;
+  padding: clamp(8px, 2vw, 24px);
+}
+.case-cover--contain img {
+  height: auto;
+  object-fit: contain;
+}
+
+.projects-more {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 40px;
+  padding-top: 28px;
+  border-top: 1px solid var(--border);
+}
+.projects-more p {
+  flex: 1 1 280px;
+  max-width: 650px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+.projects-more a { flex-shrink: 0; }

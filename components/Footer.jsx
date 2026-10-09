@@ -1,10 +1,11 @@
 import Image from "next/image";
+import { profile } from "@/content/profile";
 
 export default function Footer() {
   return (
     <footer className="footer">
       <div className="container footer-inner">
-        <a href="#home" className="brand">
+        <a href="/#home" className="brand">
           <Image
             src="/ja-logo.png"
             alt="JA"
@@ -21,9 +22,9 @@ export default function Footer() {
         </p>
 
         <div className="footer-links">
-          <a href="#">GitHub</a>
-          <a href="#">LinkedIn</a>
-          <a href="mailto:your@email.com">Email</a>
+          <a href={profile.github} target="_blank" rel="noreferrer">GitHub</a>
+          <a href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
+          <a href={`mailto:${profile.email}`}>Email</a>
         </div>
       </div>
     </footer>

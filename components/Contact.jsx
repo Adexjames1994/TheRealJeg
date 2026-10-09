@@ -1,4 +1,5 @@
-import { ArrowUpRight, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowUpRight, Github, Linkedin, Mail, Phone } from "lucide-react";
+import { profile } from "@/content/profile";
 
 export default function Contact() {
   return (
@@ -8,28 +9,34 @@ export default function Contact() {
           <p className="section-label">06 / CONTACT</p>
 
           <h2>
-            Have an idea?
+            Have an opportunity?
             <br />
-            <span>Let's Build It.</span>
+            <span>Let's Talk.</span>
           </h2>
 
           <p className="contact-copy">
-            Need a business website, web application, mobile app, dashboard or
-            backend system? Let's turn the idea into a real product.
+            Hiring a developer or planning a project? I'm open to full-time
+            roles, contract work and freelance projects across web, mobile and
+            backend development.
           </p>
 
           <div className="contact-links">
-            <a href="mailto:your@email.com">
+            <a href={`mailto:${profile.email}`}>
               <Mail size={18} />
-              your@email.com
+              {profile.email}
             </a>
 
-            <a href="#" target="_blank" rel="noreferrer">
+            <a href={profile.phoneHref}>
+              <Phone size={18} />
+              {profile.phone}
+            </a>
+
+            <a href={profile.linkedin} target="_blank" rel="noreferrer">
               <Linkedin size={18} />
               LinkedIn
             </a>
 
-            <a href="#" target="_blank" rel="noreferrer">
+            <a href={profile.github} target="_blank" rel="noreferrer">
               <Github size={18} />
               GitHub
             </a>
@@ -38,7 +45,7 @@ export default function Contact() {
 
         <form
           className="contact-form"
-          action="https://formsubmit.co/your@email.com"
+          action={`https://formsubmit.co/${profile.email}`}
           method="POST"
         >
           <input
@@ -57,6 +64,7 @@ export default function Contact() {
             Name
             <input
               name="name"
+              autoComplete="name"
               required
               placeholder="Your name"
             />
@@ -66,6 +74,7 @@ export default function Contact() {
             Email
             <input
               name="email"
+              autoComplete="email"
               required
               type="email"
               placeholder="you@example.com"
@@ -73,11 +82,13 @@ export default function Contact() {
           </label>
 
           <label>
-            Project Type
-            <select name="projectType" defaultValue="">
+            Opportunity Type
+            <select name="opportunityType" defaultValue="" required>
               <option value="" disabled>
-                Select a service
+                Select an opportunity
               </option>
+              <option>Full-time Role</option>
+              <option>Contract Role</option>
               <option>Business Website</option>
               <option>Web Application</option>
               <option>Mobile Application</option>
@@ -92,7 +103,7 @@ export default function Contact() {
               name="message"
               required
               rows="5"
-              placeholder="Tell me briefly about your project..."
+              placeholder="Tell me about the role or project..."
             />
           </label>
 

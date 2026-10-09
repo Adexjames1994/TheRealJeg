@@ -24,10 +24,12 @@ export default function TechObject() {
 
     camera.position.z = 5;
 
-    const renderer = new THREE.WebGLRenderer({
-      alpha: true,
-      antialias: true
-    });
+    let renderer;
+    try {
+      renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+    } catch {
+      return;
+    }
 
     renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
     renderer.setSize(width, height);
@@ -69,6 +71,7 @@ export default function TechObject() {
 
     scene.add(new THREE.AmbientLight(0xffffff, 1));
 
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     let animationFrame;
 
     function animate() {
@@ -77,7 +80,7 @@ export default function TechObject() {
       cube.position.y = Math.sin(Date.now() * 0.001) * 0.18;
 
       renderer.render(scene, camera);
-      animationFrame = requestAnimationFrame(animate);
+      if (!reducedMotion) animationFrame = requestAnimationFrame(animate);
     }
 
     function resize() {
@@ -87,6 +90,7 @@ export default function TechObject() {
       camera.aspect = w / h;
       camera.updateProjectionMatrix();
       renderer.setSize(w, h);
+      if (reducedMotion) renderer.render(scene, camera);
     }
 
     window.addEventListener("resize", resize);

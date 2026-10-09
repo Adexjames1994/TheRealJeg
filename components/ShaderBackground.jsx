@@ -122,7 +122,11 @@ export default function ShaderBackground() {
       gl.viewport(0, 0, canvas.width, canvas.height);
     }
 
-    const observer = new ResizeObserver(resize);
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const observer = new ResizeObserver(() => {
+      resize();
+      if (reducedMotion) render(0);
+    });
     observer.observe(canvas);
     resize();
 
@@ -144,7 +148,7 @@ export default function ShaderBackground() {
       }
 
       gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
-      frame = requestAnimationFrame(render);
+      if (!reducedMotion) frame = requestAnimationFrame(render);
     }
 
     frame = requestAnimationFrame(render);

@@ -1,5 +1,43 @@
 export const localProjects = [
   {
+    "slug": "keefie-pos",
+    "tech": ["Next.js", "Expo", "Node.js"],
+    "title": "Keefie POS",
+    "category": "Point of Sale / Retail Management",
+    "description": "A point-of-sale interface for Keefie Treats, with product browsing, order checkout and an admin dashboard for sales, inventory and daily operations.",
+    "image": "/keefie pos 2.png",
+    "overview": [
+      "Keefie POS brings a product catalogue and current-order checkout into one cashier workspace. The interface includes product categories, customer details, promo codes and order totals.",
+      "The companion admin dashboard presents sales trends and navigation for orders, inventory, payments, cashier performance and customer management."
+    ],
+    "gallery": [
+      {
+        "image": "/keefie pos 1.png",
+        "alt": "Keefie Treats admin dashboard with sales summaries and a sales trend chart",
+        "caption": "Admin dashboard: sales overview and retail operations."
+      }
+    ]
+  },
+  {
+    "slug": "voltpay",
+    "tech": ["Next.js", "Expo", "Node.js"],
+    "title": "VoltPay",
+    "category": "Electricity Payments / FinTech",
+    "description": "An electricity-payment experience with a mobile customer interface and an operations dashboard for transactions, customers and provider activity.",
+    "image": "/voltpay dash.png",
+    "overview": [
+      "VoltPay pairs a mobile electricity-payment interface with a desktop operations dashboard. The customer screen includes electricity purchases, saved meters, recent transactions and receipts.",
+      "The operations dashboard displays electricity sales, service revenue, customer totals and transaction statuses. The supplied screenshots show a demo environment with simulated transactions."
+    ],
+    "gallery": [
+      {
+        "image": "/voltpay mob.png",
+        "alt": "VoltPay mobile home screen with electricity purchase, saved meters and recent transactions",
+        "caption": "Mobile customer experience: electricity purchases and transaction history."
+      }
+    ]
+  },
+  {
     slug: "databridge",
     title: "DataBridge",
     category: "Open Banking / FinTech",

@@ -1,6 +1,7 @@
 import { ArrowDown, ArrowUpRight, Github, Linkedin, Mail } from "lucide-react";
 import ShaderBackground from "./ShaderBackground";
 import TechObject from "./TechObject";
+import { profile } from "@/content/profile";
 
 export default function Hero() {
   return (
@@ -17,7 +18,7 @@ export default function Hero() {
         <div className="hero-copy">
           <div className="availability">
             <span />
-            Available for Freelance Projects
+            Open to roles & freelance projects
           </div>
 
           <p className="eyebrow">FULL-STACK DEVELOPER / NIGERIA</p>
@@ -45,13 +46,13 @@ export default function Hero() {
           </div>
 
           <div className="social-row">
-            <a href="https://www.linkedin.com/in/jegede-adeola-32211b1a2/" aria-label="GitHub">
+            <a href={profile.github} aria-label="GitHub" target="_blank" rel="noreferrer">
               <Github size={18} />
             </a>
-            <a href="https://github.com/Adexjames1994" aria-label="LinkedIn">
+            <a href={profile.linkedin} aria-label="LinkedIn" target="_blank" rel="noreferrer">
               <Linkedin size={18} />
             </a>
-            <a href="mailto:adeolajegede1994@gmail.com" aria-label="Email">
+            <a href={`mailto:${profile.email}`} aria-label="Email">
               <Mail size={18} />
             </a>
           </div>

@@ -1,8 +1,6 @@
-/node_modules
 node_modules/
-.env.example
-.env.local
 .next/
+.next-verify/
 out/
-.env
-.env.*.local
+.env*
+!.env.example
